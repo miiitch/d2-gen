@@ -159,6 +159,39 @@ rg-shared-resources-neu: "rg-shared-resources-neu" {
 }
 ```
 
+### Constraint: `image` shapes cannot have children
+
+**Rule:** A node with `shape: image` is always a leaf — D2 will reject any attempt to nest child nodes inside it. This affects resources that are both logical containers and have icons (e.g., `azurerm_virtual_network`).
+
+**Wrong — D2 compile error:**
+```d2
+vnet: "Virtual Network\n10.0.0.0/16" {
+  shape: image
+  icon: https://...Virtual-Networks.png
+
+  subnet_pe: "snet-pe" { ... }   # ← rejected: image shapes cannot have children
+}
+```
+
+**Correct — place children as siblings and connect them:**
+```d2
+rg_common: "RG — common" {
+  vnet: "Virtual Network\n10.0.0.0/16" {
+    shape: image
+    icon: https://...Virtual-Networks.png
+  }
+
+  subnet_pe: "snet-pe\n10.0.1.0/24" {
+    shape: image
+    icon: https://...Subnet.png
+  }
+}
+
+rg_common.vnet -> rg_common.subnet_pe: "" { class: network-link }
+```
+
+If a resource acts as a logical container (VNet, NSG, etc.) and also has an icon, place its logical children as sibling nodes in the same parent container (e.g., resource group) and represent containment via explicit connections.
+
 ### Cross-Container Connections
 
 Connect nodes across different containers using dot notation:

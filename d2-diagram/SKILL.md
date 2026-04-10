@@ -133,3 +133,6 @@ Label conventions:
 - [ ] Workload-associated monitoring and storage are placed nearby, not in distant groups.
 - [ ] Style classes are used for consistent connection styling (DRY).
 - [ ] Layout engine is specified (`elk` recommended for infrastructure diagrams).
+- [ ] No node with `shape: image` has child nodes nested inside it (use sibling nodes + connections instead).
+- [ ] All connection endpoints use full dot-notation paths when nodes are inside containers (no bare names that silently create ghost top-level nodes).
+- [ ] No subscription-level container wraps resource groups unless the diagram explicitly covers multiple subscriptions.

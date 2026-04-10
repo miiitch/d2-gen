@@ -24,6 +24,39 @@ rg-app: "Resource Group — App" {
 rg-app.web-app -> rg-common.key-vault: "reads secrets" { ... }
 ```
 
+### Warning: Always use full dot-notation paths in connections
+
+When resources are declared inside containers, **all connection endpoints must use the full dot-notation path** (`container.node`). Using a bare node name creates a new top-level ghost node instead of referencing the existing nested one — the diagram renders without error but contains duplicate orphan nodes outside the resource group containers.
+
+```d2
+# ❌ Wrong — D2 silently creates new top-level nodes named subnet_pe and pe_kv
+subnet_pe -> pe_kv: "subnet" { class: pe-link }
+
+# ✅ Correct — references the existing nodes inside rg_common
+rg_common.subnet_pe -> rg_common.pe_kv: "subnet" { class: pe-link }
+
+# ✅ Correct — cross-container connection
+rg_common.subnet_pe -> rg_todo.pe_cosmos: "subnet" { class: pe-link }
+```
+
+### Rule: No subscription-level wrapper for single-subscription diagrams
+
+For single-subscription deployments the top-level grouping is the **resource group**. Do not add a subscription-level container unless the diagram explicitly covers multiple subscriptions.
+
+Adding a subscription wrapper around RGs introduces a third nesting level with no visual benefit, forces three-segment paths on every connection (`subscription.rg_common.pe_kv`), and constrains the ELK layout engine with an extra bounding box.
+
+```d2
+# ❌ Avoid for single-subscription
+subscription: "Subscription\n..." {
+  rg_common: "RG — common" { ... }
+  rg_app: "RG — app" { ... }
+}
+
+# ✅ Correct — RGs at the top level
+rg_common: "RG — common" { ... }
+rg_app: "RG — app" { ... }
+```
+
 ## `vnet-centric`
 
 Wrap **only network resources** inside VNet containers. Non-network resources
