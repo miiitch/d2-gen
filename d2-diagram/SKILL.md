@@ -67,6 +67,7 @@ These questions **must** be asked for every new diagram and every regeneration. 
 10. `Which grouping mode? (resource-group/vnet-centric/flat)`
 11. `Which layout engine? (dagre/elk/tala)`
 12. `Which D2 theme? (0/1/200/300)`
+13. `Which output format? (svg/png)`
 
 For full question descriptions and default values, see [questions reference](./references/questions.md).
 

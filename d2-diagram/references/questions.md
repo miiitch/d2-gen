@@ -33,6 +33,9 @@ The agent must ask one question per link type, with only two allowed answers: `Y
     - `1`: default light style for documentation.
     - `200`: terminal-like dark style.
     - `300`: origami style for more visual distinction.
+13. Output format: `Which output format? (svg/png)`
+    - `svg`: vector format; scales without loss; ideal for documentation and web. **(default)**
+    - `png`: raster format; best for embedding in presentations or tools that do not support SVG.
 
 ## Default Behavior If User Does Not Answer
 
@@ -50,3 +53,4 @@ The agent must ask one question per link type, with only two allowed answers: `Y
 | Grouping mode | `resource-group` |
 | Layout engine | `elk` |
 | Theme | `1` |
+| Output format | `svg` |
