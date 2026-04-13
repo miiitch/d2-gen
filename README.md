@@ -54,7 +54,7 @@ The skill will be available across all your workspaces.
 
 The skill generates `.d2` source files and uses the `d2` CLI to render them to SVG or PNG. You must have `d2` installed and available in your PATH.
 
-- Install: [https://d2lang.com/releases/install](https://d2lang.com/releases/install)
+- Install: [https://d2lang.com](https://d2lang.com)
 - Verify: `d2 --version`
 
 ### 2. Access to this GitHub repository (icon resources)
