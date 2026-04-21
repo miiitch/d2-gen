@@ -1,6 +1,6 @@
 # Contribution Guidelines
 
-Thank you for your interest in contributing to **skill-diagram-generators**! 
+Thank you for your interest in contributing to **d2-gen**! 
 
 ## Getting Started
 

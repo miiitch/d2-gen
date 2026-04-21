@@ -1,14 +1,14 @@
-# skill-diagram-generators
+# d2-gen
 
 ![D2 Diagram Example](docs/readmeimg.png)
 
-This repository contains a **VS Code GitHub Copilot skill** for generating D2 architecture diagrams from Terraform/Terragrunt infrastructure, along with the Azure icon assets it depends on.
+This repository contains a **GitHub Copilot skill** for generating D2 architecture diagrams from Azure infrastructure code (Terraform/Terragrunt, with Bicep support coming), along with the Azure icon assets it depends on.
 
 ## Repository Contents
 
 | Path | Description |
 |------|-------------|
-| `d2-diagram/` | Copilot skill for generating D2 architecture diagrams from Terraform/Terragrunt infrastructure |
+| `skills/azure/` | Copilot skill for generating D2 architecture diagrams from Azure infrastructure code |
 | `icon-index-terraform-png.json` | Mapping of ~600+ Terraform resource types (`azurerm_*`, `azuread_*`) to PNG icon paths |
 | `icon-index-terraform-svg.json` | Same mapping but for SVG icons |
 | `icon-index-bicep-png.json` | Mapping of ARM/Bicep resource types (`Microsoft.*`) to PNG icon paths |
@@ -17,34 +17,34 @@ This repository contains a **VS Code GitHub Copilot skill** for generating D2 ar
 | `svg/Icons/` | Azure service icons in SVG format |
 | `icon-mapping.json` | Full icon metadata (id, display name, category, resource type mappings, tags) |
 
-## Installing the Skill in Your Own Repo
+## Installing the Skill
 
-Copy the entire `d2-diagram/` folder (including its `references/` subfolder) to one of the supported skill locations.
+### Option 1 — Via `gh skill` (recommended)
 
-### Option 1 — Per-repository (recommended)
+```bash
+gh skill install miiitch/d2-gen azure
+```
 
-Copy the `d2-diagram/` folder into your repo under `.github/copilot/skills/`:
+### Option 2 — Manual, per-repository
+
+Copy the `skills/azure/` folder (including its `references/` subfolder) into your repo:
 
 ```
 <your-repo>/
   .github/
     copilot/
       skills/
-        d2-diagram/
+        azure/
 ```
 
-The skill will be available to anyone working in that repository.
+### Option 3 — Manual, per-user (all workspaces)
 
-### Option 2 — Per-user (all workspaces)
-
-Copy the `d2-diagram/` folder into your user-level skills directory:
+Copy the `skills/azure/` folder into your user-level skills directory:
 
 | OS | Path |
 |----|------|
-| Windows | `%USERPROFILE%\.agents\skills\d2-diagram\` |
-| macOS/Linux | `~/.agents/skills/d2-diagram/` |
-
-The skill will be available across all your workspaces.
+| Windows | `%USERPROFILE%\.agents\skills\azure\` |
+| macOS/Linux | `~/.agents/skills/azure/` |
 
 > **Note:** VS Code discovers skills via the YAML frontmatter (`name`, `description`) in `SKILL.md`. No additional registration is needed.
 
@@ -63,8 +63,8 @@ The skill fetches icon resources **at runtime** via `raw.githubusercontent.com` 
 
 | Resource | URL |
 |----------|-----|
-| **Icon mapping index** | `https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main/icon-index-terraform-png.json` |
-| **Icon PNG files** | `https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main/png/Icons/...` |
+| **Icon mapping index** | `https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main/icon-index-terraform-png.json` |
+| **Icon PNG files** | `https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main/png/Icons/...` |
 
 **How it works:**
 
@@ -83,7 +83,7 @@ The skill fetches icon resources **at runtime** via `raw.githubusercontent.com` 
 If you want to host the icons yourself (e.g. for private/air-gapped environments):
 
 1. **Fork** this repository to your own GitHub org (or mirror it to your own hosting).
-2. **Edit `d2-diagram/SKILL.md`** — update the two URLs in the "Icon Source Requirement" section:
+2. **Edit `skills/azure/SKILL.md`** — update the two URLs in the "Icon Source Requirement" section:
 
    ```
    - Mapping index: https://raw.githubusercontent.com/<YOUR-ORG>/<YOUR-REPO>/refs/heads/main/icon-index-terraform-png.json
@@ -94,9 +94,9 @@ If you want to host the icons yourself (e.g. for private/air-gapped environments
 
 ## Usage
 
-1. Open a project containing Terraform (`.tf`) or Terragrunt (`.hcl`) files in VS Code.
-2. Invoke the `d2-diagram` skill via GitHub Copilot (e.g. ask Copilot to generate an architecture diagram).
-3. Answer the **12-question mandatory questionnaire** (network links, RBAC, monitoring, grouping mode, layout engine, theme, etc.).
+1. Open a project containing Terraform (`.tf`), Terragrunt (`.hcl`), or Bicep (`.bicep`) files in VS Code.
+2. Invoke the `azure` skill via GitHub Copilot (e.g. ask Copilot to generate an architecture diagram).
+3. Answer the **13-question mandatory questionnaire** (network links, RBAC, monitoring, grouping mode, layout engine, theme, etc.).
 4. The skill generates a `.d2` file with containers, nodes, connections, icons, and styles.
 5. Render the diagram: `d2 --layout=elk diagram.d2 diagram.svg`
 

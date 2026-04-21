@@ -1,7 +1,8 @@
 ---
-name: d2-diagram
-description: "Generate D2 architecture diagrams from Terraform/Terragrunt infrastructure code. USE FOR: Terraform diagram, Terragrunt diagram, Azure architecture diagram, infrastructure visualization, generate .d2 file, D2 diagram code, connections and link styles between Azure resources, grouping with containers, applying Azure icons, layout engines (elk/dagre/tala), infrastructure visuals from HCL. DO NOT USE FOR: runtime debugging, code compilation, cloud deployment, or draw.io diagrams (use drawio-mcp instead)."
-argument-hint: "Path to Terraform/Terragrunt files or folder to diagram"
+name: azure
+description: "Generate D2 architecture diagrams from Azure infrastructure code (Terraform/Terragrunt and Bicep). USE FOR: Terraform diagram, Terragrunt diagram, Bicep diagram, Azure architecture diagram, infrastructure visualization, generate .d2 file, D2 diagram code, connections and link styles between Azure resources, grouping with containers, applying Azure icons, layout engines (elk/dagre/tala), infrastructure visuals from HCL or Bicep. DO NOT USE FOR: runtime debugging, code compilation, cloud deployment, or draw.io diagrams (use drawio-mcp instead)."
+argument-hint: "Path to Terraform/Terragrunt/Bicep files or folder to diagram"
+license: MIT
 ---
 
 # D2 Diagram Generator
@@ -26,8 +27,8 @@ Output is `.d2` text files, rendered to SVG or PNG via the `d2` CLI.
 
 Use this Terraform icon mapping as the source of truth:
 
-- Mapping index: `https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main/icon-index-terraform-png.json`
-- Base path for icon files: `https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main`
+- Mapping index: `https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main/icon-index-terraform-png.json`
+- Base path for icon files: `https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main`
 
 Resolution rule:
 
