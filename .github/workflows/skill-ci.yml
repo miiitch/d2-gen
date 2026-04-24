@@ -3,15 +3,19 @@ name: Skill CI
 on:
   push:
     branches: ["**"]
-    tags: ["v*"]
   pull_request:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version tag to publish (e.g. v0.0.3)"
+        required: true
+        type: string
 
 jobs:
   validate:
     name: Validate skill (dry-run)
     runs-on: ubuntu-latest
-    # Skip on tag pushes — the publish job handles those
-    if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+    if: ${{ github.event_name != 'workflow_dispatch' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -32,7 +36,7 @@ jobs:
   publish:
     name: Publish skill release
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: ${{ github.event_name == 'workflow_dispatch' }}
     permissions:
       contents: write
     steps:
@@ -48,6 +52,6 @@ jobs:
           gh --version
 
       - name: Publish skill
-        run: gh skill publish --tag "${GITHUB_REF_NAME}"
+        run: gh skill publish --tag "${{ inputs.version }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
