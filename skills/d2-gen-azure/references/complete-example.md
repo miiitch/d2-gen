@@ -21,17 +21,17 @@ rg-shared-resources-neu: "rg-shared-resources-neu" {
 
   key-vault: "Key Vault" {
     shape: image
-    icon: https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main/png/Icons/security/10245-icon-service-Key-Vaults.png
+    icon: https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main/png/Icons/security/10245-icon-service-Key-Vaults.png
   }
 
   log-analytics: "Log Analytics" {
     shape: image
-    icon: https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main/png/Icons/monitor/00009-icon-service-Log-Analytics-Workspaces.png
+    icon: https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main/png/Icons/monitor/00009-icon-service-Log-Analytics-Workspaces.png
   }
 
   app-config: "App Configuration" {
     shape: image
-    icon: https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main/png/Icons/integration/10219-icon-service-App-Configuration.png
+    icon: https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main/png/Icons/integration/10219-icon-service-App-Configuration.png
   }
 }
 
@@ -41,17 +41,17 @@ rg-it-resources-neu: "rg-it-resources-neu" {
 
   support-func: "Support Function App" {
     shape: image
-    icon: https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main/png/Icons/iot/10029-icon-service-Function-Apps.png
+    icon: https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main/png/Icons/iot/10029-icon-service-Function-Apps.png
   }
 
   support-insights: "App Insights (Support)" {
     shape: image
-    icon: https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main/png/Icons/monitor/00012-icon-service-Application-Insights.png
+    icon: https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main/png/Icons/monitor/00012-icon-service-Application-Insights.png
   }
 
   support-storage: "Storage Account" {
     shape: image
-    icon: https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main/png/Icons/storage/10086-icon-service-Storage-Accounts.png
+    icon: https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main/png/Icons/storage/10086-icon-service-Storage-Accounts.png
   }
 }
 

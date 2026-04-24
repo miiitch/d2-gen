@@ -1,5 +1,5 @@
 ---
-name: azure
+name: d2-gen-azure
 description: "Generate D2 architecture diagrams from Azure infrastructure code (Terraform/Terragrunt and Bicep). USE FOR: Terraform diagram, Terragrunt diagram, Bicep diagram, Azure architecture diagram, infrastructure visualization, generate .d2 file, D2 diagram code, connections and link styles between Azure resources, grouping with containers, applying Azure icons, layout engines (elk/dagre/tala), infrastructure visuals from HCL or Bicep. DO NOT USE FOR: runtime debugging, code compilation, cloud deployment, or draw.io diagrams (use drawio-mcp instead)."
 argument-hint: "Path to Terraform/Terragrunt/Bicep files or folder to diagram"
 license: MIT

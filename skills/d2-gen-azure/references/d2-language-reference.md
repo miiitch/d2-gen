@@ -220,8 +220,8 @@ D2 supports icons via the `icon` property.
 
 Use the mapping JSON as the canonical registry for Terraform resource type -> icon path.
 
-- Mapping file: `https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main/icon-index-terraform-png.json`
-- Base URL: `https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main`
+- Mapping file: `https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main/icon-index-terraform-png.json`
+- Base URL: `https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main`
 
 Build icon URLs with:
 
@@ -232,19 +232,19 @@ Build icon URLs with:
 Example resolution:
 
 - `azurerm_linux_function_app` -> `png/Icons/iot/10029-icon-service-Function-Apps.png`
-- Final URL -> `https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main/png/Icons/iot/10029-icon-service-Function-Apps.png`
+- Final URL -> `https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main/png/Icons/iot/10029-icon-service-Function-Apps.png`
 
 Use full URLs directly in D2:
 
 ```d2
 function-app: "Function App" {
   shape: image
-  icon: https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main/png/Icons/iot/10029-icon-service-Function-Apps.png
+  icon: https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main/png/Icons/iot/10029-icon-service-Function-Apps.png
 }
 
 key-vault: "Key Vault" {
   shape: image
-  icon: https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main/png/Icons/security/10245-icon-service-Key-Vaults.png
+  icon: https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main/png/Icons/security/10245-icon-service-Key-Vaults.png
 }
 ```
 

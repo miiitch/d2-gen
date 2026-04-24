@@ -163,7 +163,7 @@ classes: {
 ```d2
 pe-kv: "PE Key Vault" {
   shape: image
-  icon: https://raw.githubusercontent.com/miiitch/skill-diagram-generators/refs/heads/main/png/Icons/other/02579-icon-service-Private-Endpoints.png
+  icon: https://raw.githubusercontent.com/miiitch/d2-gen/refs/heads/main/png/Icons/other/02579-icon-service-Private-Endpoints.png
 }
 
 # Subnet -> PE (dashed, shows placement)
